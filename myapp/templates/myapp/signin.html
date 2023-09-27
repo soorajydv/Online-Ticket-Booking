@@ -1,0 +1,99 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<style>
+    /* Center-align the heading */
+    h2 {
+        text-align: center;
+        background-color: #f7f9fa;
+        /* Blue background color */
+        color: rgb(143, 11, 11);
+        padding: 15px;
+        /* Add padding for better spacing */
+    }
+
+    /* Style the container */
+    .container {
+        background-color: #F8F9FA;
+        font-size: 1.5rem;
+        /* Light gray background color */
+        padding: 30px;
+        border-radius: 10px;
+        /* Rounded corners */
+        /* Add a subtle shadow */
+    }
+    .heading-login{
+        font-size: 2.5rem;
+        text-transform: uppercase;
+    }
+
+    /* Style the form */
+    .form-group {
+        margin-bottom: 20px;
+        /* Spacing between form elements */
+    }
+
+    /* Style the submit button */
+    .btn-success {
+        background-color: #28A745;
+        /* Green button color */
+        color: white;
+        font-weight: bold;
+    }
+
+    /* Center-align the form within the column */
+    .col-sm-6 {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+    /* Add some spacing to the error message */
+    p {
+        margin-top: 20px;
+        text-align: center;
+        color: red;
+    }
+    input{
+        font-size: 1.5rem;
+        padding: .5rem 1rem;
+    }
+    input[type="submit"]:hover{
+        background-color: green;
+        cursor: pointer;
+    }
+</style>
+<div class="container">
+  
+    <div class="row">
+        <div class="col-sm-6 mx-auto" style="margin-top: 70px">
+            {% csrf_token %}
+            <h2 class="heading-login" >Log in</h2>
+
+            <form action="{% url 'signin' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group row">
+                    <label for="example-email-input" class="col-2 col-form-label">Username:</label>
+                    <div class="col-10">
+                        <input name='name' class="form-control" type="text" id="example-email-input">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="example-email-input" class="col-2 col-form-label">Password:</label>
+                    <div class="col-10">
+                        <input name='password' class="form-control" type="password">
+                    </div>
+                </div>
+                <div class="pull-right">
+                    <input type="Submit" class="btn btn-success float-right"  value="Sign in"/>
+                </div>
+
+            </form>
+            <p>{{error}}</p>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<link rel="stylesheet" type="text/css" href="{% static '/home/style.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+	
+</head>
+<body>
+<header >
+<nav>
+	
+	<div class="logo"> <h1 style="font-size: 25px;"> NEPTRA </h1> </div>
+	<div class="menu">
+		<a href="#">Home</a>
+		<a href="tickets/tickets.html" >Tickets</a>
+		<a href="about/about.html">about</a>
+		<a href="#">contact</a>
+
+		
+		
+		{% if user.is_authenticated %}
+		<a href="{% url 'logout' %}" >LOGOUT</a>
+		
+		{% else %}
+		<a href="{% url 'login' %}" >LOGIN</a>
+		{% endif %}
+	
+
+	</div>
+</nav>
+	<main>
+		<section>
+			<h3>Welcome To Neptra</h3>
+			<h1>DO COME & VISIT <span class="change_content"> </span> <span style="margin-top: -10px;"> | </span> </h1>
+			<p>"Travelling Brodens the Mind"</p>
+			<a href="" class="btnone">Let's Book your Tickets</a>
+		</section>
+	</main>
+</header>
+
+
+
+</body>
+
+
+</html>

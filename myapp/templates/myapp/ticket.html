@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        .ticket-container {
+            background-color: #fff;
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+        .ticket-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .ticket-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
+        }
+        .ticket-details .label {
+            font-weight: bold;
+        }
+        .ticket-close {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .ticket-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .ticket-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    {% csrf_token %}
+    <div class="ticket-container" method="POST">
+        <div class="ticket-title">Ticket Details</div>
+        <div class="ticket-details">
+            <div class="label">Bus name:</div>
+            <div>{{book.bus_name}}</div>
+
+            <div class="label">Starting point:</div>
+            <div>{{book.source}}</div>
+
+            <div class="label">Destination point:</div>
+            <div>{{book.dest}}</div>
+
+            <div class="label">Number of seats:</div>
+            <div>{{book.nos}}</div>
+
+            <div class="label">Price:</div>
+            <div>{{book.price}}</div>
+
+            <div class="label">Date:</div>
+            <div>{{book.date}}</div>
+
+            <div class="label">Time:</div>
+            <div>{{ book.time }}</div>
+        </div>
+        <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+        </div> -->
+    </div>
+</body>
+</html>

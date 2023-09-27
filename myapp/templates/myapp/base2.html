@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{% static '/style.css' %}">
+	{% block cssfile %}
+
+	{% endblock %}
+
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+</head>
+
+<body>
+
+	<header>
+
+		<nav>
+
+			<div class="logo">
+				<h1 style="font-size: 25px;"> NEPTRA </h1>
+			</div>
+			<div class="menu">
+				<a href="{% url 'home' %}" style="color: rgb(143, 11, 11);">Home</a>
+				<a class="nav-item nav-link" href="{% url 'findbus' %}" style="color: rgb(143, 11, 11);">Find Bus</a>
+				<a class="nav-item nav-link" href="{% url 'seebookings' %}" style="color: rgb(143, 11, 11);">Bookings </a>
+				<a class="nav-item nav-link" href="{% url 'contact' %}" style="color: rgb(143, 11, 11);">Contact</a>
+
+				{% if request.user.is_active %}
+				<a class="nav-item nav-link " href="{% url 'signout' %}" style="color: rgb(143, 11, 11);">Sign out</a>
+				{% else %}
+				<a class="nav-item nav-link " href="{% url 'signup' %}" style="color:  rgb(143, 11, 11);">Sign Up</a>
+				{% endif %}
+				{% if message %}
+				<p style="color:green">{{message}}</p>
+				{% endif %}
+
+			</div>
+		</nav>
+		<center style="margin-top: 10rem;">
+			<h1 style="margin: -5rem 0 0 25rem;color: rgb(85,37,0);">Welcome to Bus Reservation System</h1>
+		</center>
+		{% block home %}
+		{% endblock %}
+
+	</header>
+	{% block content %}
+	{% endblock %}
+
+
+</body>
+
+
+</html>

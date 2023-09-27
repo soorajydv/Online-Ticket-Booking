@@ -1,0 +1,41 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<style>
+    .body{
+        background-image: url('/static/home.jpg');
+        height: 100vh;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+    }
+
+    .title{
+        padding-top: 7rem;
+        color: rgb(143, 11, 11);
+    }
+    .link-to-book-bus{
+        color: rgb(171 179 196);
+        background-color: brown;
+        border-radius: 1rem;
+        padding: .6rem 2rem;
+        cursor: pointer;
+        font-size: 1.7rem;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: bolder;
+        margin-top: 2rem;
+    }
+    .link-to-book-bus:hover{
+        background-color: rgb(203, 9, 9);
+    }
+</style>
+
+<div class="body">
+    
+    <h1 class="title">WELCOME TO BUS RESERVATION SYSTEM</h1>
+    <a class="link-to-book-bus" href="/findbus">Book Now</a>
+</div>
+
+{% endblock %}
